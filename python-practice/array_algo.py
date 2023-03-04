@@ -2,6 +2,7 @@ def contains_unique_characters1(word):
     return len(set(word)) == len(word)
 
 
+# bit vector saves more space
 def contains_unique_characters2(word):
     letter_map = {}
     for letter in word:
