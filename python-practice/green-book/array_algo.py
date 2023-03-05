@@ -1,9 +1,10 @@
+# ----- Q1 -----
 # O(n) with built-in functions
 def contains_unique_characters_built_in_func(word):
     return len(set(word)) == len(word)
 
 
-# O(n) bit vector saves more space
+# O(n) dictionary
 def contains_unique_characters_dict(word):
     letter_map = {}
     for letter in word:
@@ -29,6 +30,39 @@ def contains_unique_characters_sorting(word):
         if letter == sorted_word[index - 1]:
             return False
     return True
+
+
+# ----- Q2 -----
+# O(n)
+def strings_contain_same_letter_dict(lhs, rhs):
+    letter_count = {}
+
+    if len(lhs) != len(rhs):
+        return False
+
+    for letter in lhs:
+        letter_count[letter] = letter_count.get(letter, 0) + 1
+
+    for letter in rhs:
+        letter_count[letter] = letter_count.get(letter, 0) - 1
+
+    for count in letter_count.values():
+        if count != 0:
+            return False
+
+    return True
+
+
+# ----- Q3 -----
+def url_safe_string(input_string):
+    letters = []
+    for letter in input_string:
+        if letter == " " and letters and letters[len(letters) - 1] != "%20":
+            letters.append("%20")
+        elif letter != " ":
+            letters.append(letter)
+
+    return "".join(letters).rstrip("%20")
 
 
 def main():
