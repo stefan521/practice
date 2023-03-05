@@ -65,6 +65,29 @@ def url_safe_string(input_string):
     return "".join(letters).rstrip("%20")
 
 
+# ----- Q4 -----
+def is_palindrome_permutation(word):
+    letters = {}
+    odd_counts = 0
+
+    for letter in word:
+        letters[letter] = letters.get(letter, 0) + 1
+
+    for count in letters.values():
+        if count % 2 == 1 and odd_counts < 1:
+            odd_counts += 1
+        elif count % 2 == 1:
+            return False
+
+    return True
+
+
+# ----- Q5 -----
+# ----- Q6 -----
+# ----- Q7 -----
+# ----- Q8 -----
+
+
 def main():
     print("run python3 -m pytest")
 

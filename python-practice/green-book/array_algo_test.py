@@ -45,8 +45,19 @@ def test_strings_contain_same_letter_dict():
 
 # ----- Q3 -----
 def test_url_safe_string():
-    # assert url_safe_string("") == ""
-    # assert url_safe_string("John Wick") == "John%20Wick"
-    # assert url_safe_string("all plants need water") == "all%20plants%20need%20water"
+    assert url_safe_string("") == ""
+    assert url_safe_string("John Wick") == "John%20Wick"
+    assert url_safe_string("all plants need water") == "all%20plants%20need%20water"
     assert url_safe_string("          pasta with garlic and oil    ") == "pasta%20with%20garlic%20and%20oil"
     assert url_safe_string(" Bikes And Cars       And  Boats ") == "Bikes%20And%20Cars%20And%20Boats"
+
+
+# ----- Q4 -----
+def test_is_palindrome_permutation():
+    assert is_palindrome_permutation("")
+    assert is_palindrome_permutation("civic")
+    assert is_palindrome_permutation("ciivc")
+    assert is_palindrome_permutation("mom")
+    assert is_palindrome_permutation("oom")
+    assert not is_palindrome_permutation("dog")
+    assert not is_palindrome_permutation("pears")
