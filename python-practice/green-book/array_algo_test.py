@@ -61,3 +61,19 @@ def test_is_palindrome_permutation():
     assert is_palindrome_permutation("oom")
     assert not is_palindrome_permutation("dog")
     assert not is_palindrome_permutation("pears")
+
+
+# ----- Q5 -----
+def test_one_edit_away():
+    assert one_edit_away("", "")
+    assert one_edit_away("pie", "pie")
+    assert one_edit_away("pie", "piee")
+    assert one_edit_away("pye", "pie")
+    assert one_edit_away("elephant", "elepant")
+    assert one_edit_away("elepant", "elephant")
+    assert one_edit_away("lephant", "elephant")
+    assert one_edit_away("elephant", "elephan")
+    assert one_edit_away("elephant", "elephan")
+    assert not one_edit_away("", "plant")
+    assert not one_edit_away("tree", "")
+    assert not one_edit_away("phone", "telephone")

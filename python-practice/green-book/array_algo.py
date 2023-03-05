@@ -54,6 +54,7 @@ def strings_contain_same_letter_dict(lhs, rhs):
 
 
 # ----- Q3 -----
+# O(n)
 def url_safe_string(input_string):
     letters = []
     for letter in input_string:
@@ -66,6 +67,7 @@ def url_safe_string(input_string):
 
 
 # ----- Q4 -----
+# O(n)
 def is_palindrome_permutation(word):
     letters = {}
     odd_counts = 0
@@ -83,6 +85,50 @@ def is_palindrome_permutation(word):
 
 
 # ----- Q5 -----
+# O(n)
+def _one_extra_letter(shorter, longer):
+    mismatches = 0
+    idx1 = 0
+    idx2 = 0
+
+    while idx1 < len(shorter):
+        if shorter[idx1] == longer[idx2]:
+            idx1 += 1
+            idx2 += 1
+        elif shorter[idx1] != longer[idx2] and mismatches > 0:
+            return False
+        elif shorter[idx1] != longer[idx2]:
+            mismatches += 1
+            idx2 += 1
+
+    return mismatches <= 1
+
+
+def _one_mismatch(lhs, rhs):
+    mismatches = 0
+
+    for idx, letter in enumerate(lhs):
+        if rhs[idx] != letter and mismatches > 0:
+            return False
+        elif rhs[idx] != letter:
+            mismatches += 1
+
+    return True
+
+
+def one_edit_away(lhs, rhs):
+    if abs(len(lhs) - len(rhs)) > 1:
+        return False
+
+    if len(lhs) == len(rhs):
+        return _one_mismatch(lhs, rhs)
+
+    if len(lhs) < len(rhs):
+        return _one_extra_letter(lhs, rhs)
+
+    return _one_extra_letter(rhs, lhs)
+
+
 # ----- Q6 -----
 # ----- Q7 -----
 # ----- Q8 -----
