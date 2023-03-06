@@ -77,3 +77,12 @@ def test_one_edit_away():
     assert not one_edit_away("", "plant")
     assert not one_edit_away("tree", "")
     assert not one_edit_away("phone", "telephone")
+
+
+#  ----- Q6 -----
+def test_compress_string():
+    assert compress_string("") == ""
+    assert compress_string("parrot") == "par2ot"
+    assert compress_string("dog") == "dog"
+    assert compress_string("success") == "suc2es2"
+    assert compress_string("ffrrrrroggg") == "f2r5og3"

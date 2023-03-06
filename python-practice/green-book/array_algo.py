@@ -130,6 +130,31 @@ def one_edit_away(lhs, rhs):
 
 
 # ----- Q6 -----
+# O(n)
+def compress_string(word):
+    compressed = []
+    count = 1
+
+    if len(word) < 2:
+        return word
+
+    def append(character):
+        if count >= 2:
+            compressed.extend([character, str(count)])
+        else:
+            compressed.append(character)
+
+    for idx in range(0, len(word) - 1):
+        if word[idx] == word[idx + 1]:
+            count += 1
+        else:
+            append(word[idx])
+            count = 1
+
+    append(word[len(word) - 1])
+
+    return "".join(compressed)
+
 # ----- Q7 -----
 # ----- Q8 -----
 
