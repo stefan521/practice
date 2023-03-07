@@ -86,3 +86,22 @@ def test_compress_string():
     assert compress_string("dog") == "dog"
     assert compress_string("success") == "suc2es2"
     assert compress_string("ffrrrrroggg") == "f2r5og3"
+
+
+# ----- Q7 -----
+def test_rotate_image_size0():
+    image = []
+    expected = []
+    assert rotate_image(image) == expected
+
+
+def test_rotate_image_size2():
+    image = [
+        [1, 2],
+        [3, 4]
+    ]
+    expected = [
+        [3, 1],
+        [4, 2]
+    ]
+    assert rotate_image(image) == expected

@@ -155,7 +155,12 @@ def compress_string(word):
 
     return "".join(compressed)
 
+
 # ----- Q7 -----
+# todo
+def rotate_image(image):
+    return image
+
 # ----- Q8 -----
 
 

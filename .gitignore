@@ -207,3 +207,4 @@ poetry.toml
 
 # ========== MANUALLY ADDED ==========
 .pytest_cache
+.idea/
