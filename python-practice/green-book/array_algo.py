@@ -161,7 +161,11 @@ def compress_string(word):
 def rotate_image(image):
     return image
 
+
 # ----- Q8 -----
+# todo
+def propagate0(matrix):
+    return matrix
 
 
 def main():
