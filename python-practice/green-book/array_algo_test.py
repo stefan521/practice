@@ -107,6 +107,22 @@ def test_rotate_image_size2():
     assert rotate_image(image) == expected
 
 
+def test_rotate_image_size3():
+    image = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8]
+    ]
+
+    expected = [
+        [6, 3, 0],
+        [7, 4, 1],
+        [8, 5, 2]
+    ]
+
+    assert rotate_image(image) == expected
+
+
 # ----- Q8 -----
 def test_propagate0_t1():
     matrix = []

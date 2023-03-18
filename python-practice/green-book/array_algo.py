@@ -1,5 +1,8 @@
 # ----- Q1 -----
 # O(n) with built-in functions
+import copy
+
+
 def contains_unique_characters_built_in_func(word):
     return len(set(word)) == len(word)
 
@@ -157,9 +160,13 @@ def compress_string(word):
 
 
 # ----- Q7 -----
-# todo
 def rotate_image(image):
-    return image
+    new_image = copy.deepcopy(image)
+    for x, row in enumerate(image):
+        for y, value in enumerate(row):
+            new_image[y][len(row) - x - 1] = value
+
+    return new_image
 
 
 # ----- Q8 -----
