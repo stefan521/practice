@@ -140,3 +140,17 @@ def test_propagate0_t2():
         [2, 0]
     ]
     assert propagate0(matrix) == expected
+
+
+def test_propagate0_t3():
+    matrix = [
+        [1, 2, 3],
+        [4, 0, 6],
+        [7, 8, 9]
+    ]
+    expected = [
+        [1, 0, 3],
+        [0, 0, 0],
+        [7, 0, 9]
+    ]
+    assert propagate0(matrix) == expected

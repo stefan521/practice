@@ -162,17 +162,31 @@ def compress_string(word):
 # ----- Q7 -----
 def rotate_image(image):
     new_image = copy.deepcopy(image)
-    for x, row in enumerate(image):
-        for y, value in enumerate(row):
-            new_image[y][len(row) - x - 1] = value
+    for x, column in enumerate(image):
+        for y, value in enumerate(column):
+            new_image[y][len(column) - x - 1] = value
 
     return new_image
 
 
 # ----- Q8 -----
-# todo
 def propagate0(matrix):
-    return matrix
+    new_matrix = copy.deepcopy(matrix)
+    columns = []
+    rows = []
+
+    for x, column in enumerate(matrix):
+        for y, value in enumerate(column):
+            if value == 0:
+                columns.append(x)
+                rows.append(y)
+
+    for x, column in enumerate(matrix):
+        for y, value in enumerate(column):
+            if x in columns or y in rows:
+                new_matrix[x][y] = 0
+
+    return new_matrix
 
 
 def main():
