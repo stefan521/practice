@@ -189,6 +189,12 @@ def propagate0(matrix):
     return new_matrix
 
 
+# ----- Q9 -----
+# todo
+def is_rotation(lhs, rhs):
+    return rhs in (lhs + lhs)
+
+
 def main():
     print("run python3 -m pytest")
 

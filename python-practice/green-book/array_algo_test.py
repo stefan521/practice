@@ -154,3 +154,13 @@ def test_propagate0_t3():
         [7, 0, 9]
     ]
     assert propagate0(matrix) == expected
+
+
+# ----- Q9 -----
+def test_is_rotation():
+    assert is_rotation("", "")
+    assert is_rotation("house", "house")
+    assert is_rotation("sehou", "house")
+    assert is_rotation("kshar", "shark")
+    assert not is_rotation("apples", "oranges")
+    assert not is_rotation("", "apples")
