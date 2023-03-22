@@ -190,7 +190,6 @@ def propagate0(matrix):
 
 
 # ----- Q9 -----
-# todo
 def is_rotation(lhs, rhs):
     return rhs in (lhs + lhs)
 
