@@ -1,4 +1,4 @@
-from array_algo import *
+from array import *
 
 
 # ----- Q1 -----
