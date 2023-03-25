@@ -1,9 +1,16 @@
-# ===== Q1 =====
-
 class Node:
     def __init__(self, next_node, value):
         self.next_node = next_node
         self.value = value
+
+    def __str__(self):
+        return f"Node({self.value})"
+
+    def __eq__(self, other):
+        return self.value == other.value
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
 
 class SinglyLinkedList:
@@ -16,34 +23,61 @@ class SinglyLinkedList:
         while node is not None:
             values.append(node.value)
             node = node.next_node
-        return '[' + ', '.join(reversed(values)) + ']'
+        return 'SinglyLinkedList(' + ', '.join(values) + ')'
+
+    def __eq__(self, other):
+        head_self = self.head
+        head_other = other.head
+
+        while head_self is not None and head_other is not None:
+            if head_self != head_other:
+                return False
+            head_self = head_self.next_node
+            head_other = head_other.next_node
+
+        return True
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
     @staticmethod
     def from_list(lst):
         singly_linked_list = SinglyLinkedList()
-        for thing in lst:
-            singly_linked_list.append(thing)
+        for thing in reversed(lst):
+            singly_linked_list.prepend(thing)
         return singly_linked_list
 
     def is_empty(self):
         return self.head is None
 
-    def append(self, value):
+    def prepend(self, value):
         new_head = Node(self.head, value)
         self.head = new_head
         return new_head
 
 
+# ===== Q1 =====
+# O(n)
 def remove_duplicates(lst):
     seen = set()
-    new_list = []
 
-    for element in lst:
-        if element not in seen:
-            new_list.append(element)
-            seen.add(element)
+    if lst.is_empty() or lst.head.next_node is None:
+        return lst
 
-    return new_list
+    current_node = lst.head
+    next_node = current_node.next_node
+    seen.add(current_node.value)
+
+    while next_node is not None:
+        if next_node.value in seen:
+            current_node.next_node = next_node.next_node
+            next_node = next_node.next_node
+        else:
+            seen.add(next_node.value)
+            current_node = current_node.next_node
+            next_node = next_node.next_node
+
+    return lst
 
 
 def main():
