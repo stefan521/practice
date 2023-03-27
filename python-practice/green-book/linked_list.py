@@ -55,6 +55,17 @@ class SinglyLinkedList:
         self.head = new_head
         return new_head
 
+    # O(n)
+    def size(self):
+        curr = self.head
+        size = 0
+
+        while curr is not None:
+            curr = curr.next_node
+            size += 1
+
+        return size
+
 
 # ===== Q1 =====
 # O(n)
@@ -78,6 +89,23 @@ def remove_duplicates(lst):
             next_node = next_node.next_node
 
     return lst
+
+
+# ===== Q3 =====
+# O(n)
+def to_last(singly_linked_list, kth):
+    size = singly_linked_list.size()
+    curr = singly_linked_list.head
+
+    if size - kth <= 0:
+        return None
+
+    steps = 1
+    while steps < size - kth:
+        curr = curr.next_node
+        steps += 1
+
+    return curr
 
 
 def main():
