@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, next_node, value):
+    def __init__(self, value, next_node=None):
         self.next_node = next_node
         self.value = value
 
@@ -51,7 +51,7 @@ class SinglyLinkedList:
         return self.head is None
 
     def prepend(self, value):
-        new_head = Node(self.head, value)
+        new_head = Node(value, self.head)
         self.head = new_head
         return new_head
 
@@ -106,6 +106,25 @@ def to_last(singly_linked_list, kth):
         steps += 1
 
     return curr
+
+
+def to_last_runner_tech(singly_linked_list, kth):
+    p1 = singly_linked_list.head
+    p2 = singly_linked_list.head
+    distance = 0
+
+    while p2 is not None:
+        if distance <= kth:
+            distance += 1
+            p2 = p2.next_node
+        else:
+            p1 = p1.next_node
+            p2 = p2.next_node
+
+    if distance == kth + 1:
+        return p1
+    else:
+        return None
 
 
 def main():

@@ -17,40 +17,39 @@ def test_remove_duplicates_1():
 # ===== Q2 =====
 def test_to_last_0():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd'])
-    expected = 'd'
-    result = to_last(lst, 0)
-    assert result is not None and result.value == expected
+    expected = Node('d')
+    assert to_last(lst, 0) == expected
+    assert to_last_runner_tech(lst, 0) == expected
 
 
 def test_to_last_1():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd'])
-    expected = 'c'
-    result = to_last(lst, 1)
-    assert result is not None and result.value == expected
+    expected = Node('c')
+    assert to_last(lst, 1) == expected
+    assert to_last_runner_tech(lst, 1) == expected
 
 
 def test_to_last_2():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd'])
-    expected = 'b'
-    result = to_last(lst, 2)
-    assert result is not None and result.value == expected
+    expected = Node('b')
+    assert to_last(lst, 2) == expected
+    assert to_last_runner_tech(lst, 2) == expected
 
 
 def test_to_last_3():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd'])
-    expected = 'a'
-    result = to_last(lst, 3)
-    assert result is not None and result.value == expected
+    expected = Node('a')
+    assert to_last(lst, 3) == expected
+    assert to_last_runner_tech(lst, 3) == expected
 
 
 def test_to_last_4():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd'])
-    result = to_last(lst, 4)
-    print(f"result >>>  ${result}")
-    assert result is None
+    assert to_last(lst, 4) is None
+    assert to_last_runner_tech(lst, 4) is None
 
 
 def test_to_last_5():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd'])
-    result = to_last(lst, 5)
-    assert result is None
+    assert to_last(lst, 5) is None
+    assert to_last_runner_tech(lst, 5) is None
