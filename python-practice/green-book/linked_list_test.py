@@ -53,3 +53,39 @@ def test_to_last_5():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd'])
     assert to_last(lst, 5) is None
     assert to_last_runner_tech(lst, 5) is None
+
+
+# ===== Q3 =====
+def test_delete_midddle_node_0():
+    lst = SinglyLinkedList.from_list([])
+    expected = SinglyLinkedList.from_list([])
+    assert delete_midddle_node(lst) == expected
+
+
+def test_delete_midddle_node_1():
+    lst = SinglyLinkedList.from_list(['a'])
+    expected = SinglyLinkedList.from_list([])
+    assert delete_midddle_node(lst) == expected
+
+
+def test_delete_midddle_node_2():
+    lst = SinglyLinkedList.from_list(['a', 'b'])
+    expected = SinglyLinkedList.from_list(['a', 'b'])
+    assert delete_midddle_node(lst) == expected
+
+
+def test_delete_midddle_node_3():
+    lst = SinglyLinkedList.from_list(['a', 'b', 'c'])
+    expected = SinglyLinkedList.from_list(['a', 'c'])
+    assert delete_midddle_node(lst) == expected
+
+
+# ===== MISC =====
+def test_node_equality():
+    n1 = Node('a')
+    n2 = Node('a')
+    n3 = Node('b')
+    assert n1 == n2
+    assert n1 != n3
+    assert n1 is not n2
+    assert n1 is not n3

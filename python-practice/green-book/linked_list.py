@@ -91,7 +91,7 @@ def remove_duplicates(lst):
     return lst
 
 
-# ===== Q3 =====
+# ===== Q2 =====
 # O(n)
 def to_last(singly_linked_list, kth):
     size = singly_linked_list.size()
@@ -125,6 +125,26 @@ def to_last_runner_tech(singly_linked_list, kth):
         return p1
     else:
         return None
+
+
+# ===== Q3 =====
+def delete_midddle_node(singly_linked_list):
+    p1 = singly_linked_list.head
+    p2 = singly_linked_list.head
+
+    if p1 is None or p1.next_node is None:
+        singly_linked_list.head = None
+        return singly_linked_list
+
+    while p2 is not None and p2.next_node is not None:
+        if p1 is not p2:
+            p1 = p1.next_node
+        p2 = p2.next_node.next_node
+
+    if p2 is not None:
+        p1.next_node = p1.next_node.next_node
+
+    return singly_linked_list
 
 
 def main():
