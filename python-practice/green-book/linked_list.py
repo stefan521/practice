@@ -148,22 +148,21 @@ def delete_midddle_node(singly_linked_list):
 
 
 # ===== Q4 =====
-def partition(lst, val):
+def partition(lst, partition_value):
+    new_lst = SinglyLinkedList.from_list([])
+
     if lst.head is None:
-        return SinglyLinkedList.from_list([])
+        return new_lst
 
-    if lst.head.next_node is None:
-        return SinglyLinkedList.from_list([lst.head.value])
-
-    new_lst = SinglyLinkedList.from_list([lst.head.value])
+    new_lst.prepend(lst.head.value)
     new_lst_tail = new_lst.head
     curr = lst.head.next_node
 
     while curr is not None:
-        if curr.value < val:
+        if curr.value < partition_value:
             new_lst.prepend(curr.value)
 
-        if curr.value >= val:
+        if curr.value >= partition_value:
             new_lst_tail.next_node = Node(curr.value)
             new_lst_tail = new_lst_tail.next_node
 

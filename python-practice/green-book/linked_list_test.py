@@ -80,6 +80,37 @@ def test_delete_midddle_node_3():
     assert delete_midddle_node(lst) == expected
 
 
+# ===== Q4 =====
+def test_partition_lst_0():
+    lst = SinglyLinkedList.from_list([])
+    expected = SinglyLinkedList.from_list([])
+    assert partition(lst, 0) == expected
+
+
+def test_partition_lst_1():
+    lst = SinglyLinkedList.from_list([4])
+    expected = SinglyLinkedList.from_list([4])
+    assert partition(lst, 0) == expected
+
+
+def test_partition_lst_2():
+    lst = SinglyLinkedList.from_list([5, 10])
+    expected = SinglyLinkedList.from_list([5, 10])
+    assert partition(lst, 0) == expected
+
+
+def test_partition_lst_3():
+    lst = SinglyLinkedList.from_list([8, 9, 1])
+    expected = SinglyLinkedList.from_list([1, 8, 9])
+    assert partition(lst, 5) == expected
+
+
+def test_partition_lst_4():
+    lst = SinglyLinkedList.from_list([3, 5, 8, 5, 10, 2, 1])
+    expected = SinglyLinkedList.from_list([1, 2, 3, 5, 8, 5, 10])
+    assert partition(lst, 5) == expected
+
+
 # ===== MISC =====
 def test_node_equality():
     n1 = Node('a')
