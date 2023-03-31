@@ -171,6 +171,22 @@ def partition(lst, partition_value):
     return new_lst
 
 
+# ===== Q5 =====
+# TODO
+
+
+# ===== Q6 =====
+def is_palindrome(lst):
+    new_lst = SinglyLinkedList.from_list([])
+    curr = lst.head
+
+    while curr is not None:
+        new_lst.prepend(curr.value)
+        curr = curr.next_node
+
+    return lst == new_lst
+
+
 def main():
     print("run python3 -m pytest")
 

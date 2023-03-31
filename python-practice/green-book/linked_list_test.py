@@ -110,6 +110,23 @@ def test_partition_lst_4():
     expected = SinglyLinkedList.from_list([1, 2, 3, 5, 8, 5, 10])
     assert partition(lst, 5) == expected
 
+# ===== Q5 =====
+# TODO
+
+
+# ===== Q6 =====
+def test_palindrome_0():
+    assert is_palindrome(SinglyLinkedList.from_list([]))
+    assert is_palindrome(SinglyLinkedList.from_list([4]))
+    assert is_palindrome(SinglyLinkedList.from_list([5, 5]))
+    assert is_palindrome(SinglyLinkedList.from_list([5, 2, 5]))
+    assert not is_palindrome(SinglyLinkedList.from_list([5, 3]))
+    assert not is_palindrome(SinglyLinkedList.from_list([2, 2, 5]))
+    assert is_palindrome(SinglyLinkedList.from_list(['a', 'b', 'b', 'a']))
+    assert is_palindrome(SinglyLinkedList.from_list(['a', 'c', 'v', 'c', 'a']))
+    assert not is_palindrome(SinglyLinkedList.from_list(['a', 'x', 'b', 'a']))
+    assert not is_palindrome(SinglyLinkedList.from_list(['a', 'x', 'v', 'c', 'a']))
+
 
 # ===== MISC =====
 def test_node_equality():
