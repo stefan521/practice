@@ -56,28 +56,28 @@ def test_to_last_5():
 
 
 # ===== Q3 =====
-def test_delete_midddle_node_0():
+def test_delete_middle_node_0():
     lst = SinglyLinkedList.from_list([])
     expected = SinglyLinkedList.from_list([])
-    assert delete_midddle_node(lst) == expected
+    assert delete_middle_node(lst) == expected
 
 
-def test_delete_midddle_node_1():
+def test_delete_middle_node_1():
     lst = SinglyLinkedList.from_list(['a'])
     expected = SinglyLinkedList.from_list([])
-    assert delete_midddle_node(lst) == expected
+    assert delete_middle_node(lst) == expected
 
 
-def test_delete_midddle_node_2():
+def test_delete_middle_node_2():
     lst = SinglyLinkedList.from_list(['a', 'b'])
     expected = SinglyLinkedList.from_list(['a', 'b'])
-    assert delete_midddle_node(lst) == expected
+    assert delete_middle_node(lst) == expected
 
 
-def test_delete_midddle_node_3():
+def test_delete_middle_node_3():
     lst = SinglyLinkedList.from_list(['a', 'b', 'c'])
     expected = SinglyLinkedList.from_list(['a', 'c'])
-    assert delete_midddle_node(lst) == expected
+    assert delete_middle_node(lst) == expected
 
 
 # ===== Q4 =====
@@ -110,8 +110,36 @@ def test_partition_lst_4():
     expected = SinglyLinkedList.from_list([1, 2, 3, 5, 8, 5, 10])
     assert partition(lst, 5) == expected
 
+
 # ===== Q5 =====
-# TODO
+def test_sum_numbers_reversed_0():
+    lst1 = SinglyLinkedList.from_list([])
+    lst2 = SinglyLinkedList.from_list([])
+    assert sum_numbers_reversed(lst1, lst2) == 0
+
+
+def test_sum_numbers_reversed_1():
+    lst1 = SinglyLinkedList.from_list([])
+    lst2 = SinglyLinkedList.from_list([5, 1, 2])
+    assert sum_numbers_reversed(lst1, lst2) == 215
+
+
+def test_sum_numbers_reversed_2():
+    lst1 = SinglyLinkedList.from_list([3, 6, 8])
+    lst2 = SinglyLinkedList.from_list([])
+    assert sum_numbers_reversed(lst1, lst2) == 863
+
+
+def test_sum_numbers_reversed_3():
+    lst1 = SinglyLinkedList.from_list([7, 1, 6])
+    lst2 = SinglyLinkedList.from_list([5, 9, 2])
+    assert sum_numbers_reversed(lst1, lst2) == 912
+
+
+def test_sum_numbers_reversed_4():
+    lst1 = SinglyLinkedList.from_list([0, 1])
+    lst2 = SinglyLinkedList.from_list([2])
+    assert sum_numbers_reversed(lst1, lst2) == 12
 
 
 # ===== Q6 =====

@@ -128,7 +128,7 @@ def to_last_runner_tech(singly_linked_list, kth):
 
 
 # ===== Q3 =====
-def delete_midddle_node(singly_linked_list):
+def delete_middle_node(singly_linked_list):
     p1 = singly_linked_list.head
     p2 = singly_linked_list.head
 
@@ -172,7 +172,21 @@ def partition(lst, partition_value):
 
 
 # ===== Q5 =====
-# TODO
+def _sum_lst_reversed(lst):
+    total = 0
+    multiplier = 0
+    curr = lst.head
+
+    while curr is not None:
+        total += curr.value * pow(10, multiplier)
+        multiplier += 1
+        curr = curr.next_node
+
+    return total
+
+
+def sum_numbers_reversed(n1, n2):
+    return _sum_lst_reversed(n1) + _sum_lst_reversed(n2)
 
 
 # ===== Q6 =====
