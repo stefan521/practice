@@ -156,6 +156,31 @@ def test_palindrome_0():
     assert not is_palindrome(SinglyLinkedList.from_list(['a', 'x', 'v', 'c', 'a']))
 
 
+# ===== Q7 =====
+def test_find_intersection_0():
+    lst1 = SinglyLinkedList.from_list([])
+    lst2 = SinglyLinkedList.from_list([])
+    assert find_intersection(lst1, lst2) is None
+
+
+def test_find_intersection_1():
+    lst1 = SinglyLinkedList.from_list([1, 2, 3, 4, 5])
+    lst2 = SinglyLinkedList.from_list([1, 2, 3, 4, 5])
+    assert find_intersection(lst1, lst2) is None
+
+
+def test_find_intersection_2():
+    lst1 = SinglyLinkedList.from_list([1, 2, 3, 4, 5])
+    lst2 = SinglyLinkedList.from_list([])
+    lst2.head = lst1.head.next_node.next_node
+
+    assert find_intersection(lst1, lst2) is lst2.head
+
+
+# ===== Q8 =====
+# TODO
+
+
 # ===== MISC =====
 def test_node_equality():
     n1 = Node('a')

@@ -201,6 +201,27 @@ def is_palindrome(lst):
     return lst == new_lst
 
 
+# ===== Q7 =====
+def find_intersection(lst1, lst2):
+    lst1_nodes = set()
+
+    curr = lst1.head
+    while curr is not None:
+        lst1_nodes.add(id(curr))
+        curr = curr.next_node
+
+    curr = lst2.head
+    while curr is not None:
+        if id(curr) in lst1_nodes:
+            return curr
+        curr = curr.next_node
+
+    return None
+
+# ===== Q8 =====
+# TODO
+
+
 def main():
     print("run python3 -m pytest")
 
