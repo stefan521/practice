@@ -218,8 +218,20 @@ def find_intersection(lst1, lst2):
 
     return None
 
+
 # ===== Q8 =====
-# TODO
+def find_cycle(lst):
+    lst_nodes = set()
+
+    curr = lst.head
+    while curr is not None:
+        if id(curr) in lst_nodes:
+            return curr
+        else:
+            lst_nodes.add(id(curr))
+        curr = curr.next_node
+
+    return None
 
 
 def main():
