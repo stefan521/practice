@@ -178,7 +178,24 @@ def test_find_intersection_2():
 
 
 # ===== Q8 =====
-# TODO
+def test_find_cycle_0():
+    lst = SinglyLinkedList.from_list([])
+    assert find_cycle(lst) is None
+
+
+def test_find_cycle_1():
+    lst = SinglyLinkedList.from_list(['a', 'b', 'c', 'd', 'e', 'f'])
+    assert find_cycle(lst) is None
+
+
+def test_find_cycle_2():
+    lst = SinglyLinkedList.from_list([])
+    c = Node('c')
+    b = Node('b', c)
+    a = Node('a', b)
+    c.next_node = b
+    lst.head = a
+    assert find_cycle(lst) is b
 
 
 # ===== MISC =====
