@@ -39,6 +39,26 @@ class Stack:
         return self._top is None
 
 
+# ===== Q2 =====
+def find_min(stack):
+    other_stack = Stack()
+
+    if stack.is_empty():
+        return None
+
+    minimum = stack.peek().value
+
+    while not stack.is_empty():
+        other_stack.push(stack.pop())
+        if other_stack.peek().value < minimum:
+            minimum = other_stack.peek().value
+
+    while not other_stack.is_empty():
+        stack.push(other_stack.pop())
+
+    return minimum
+
+
 def main():
     print("run python3 -m pytest")
 

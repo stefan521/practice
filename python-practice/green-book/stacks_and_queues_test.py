@@ -39,3 +39,24 @@ def test_pop():
     stack.push(10)
     assert stack.pop() is 10
     assert stack._top.value == 9
+
+
+# ===== Q2 =====
+def test_find_min_0():
+    stack = Stack()
+    assert find_min(stack) is None
+
+
+def test_find_min_1():
+    stack = Stack()
+    stack.push(22)
+    stack.push(521)
+    stack.push(13)
+    stack.push(90)
+    assert find_min(stack) is 13
+
+
+def test_find_min_2():
+    stack = Stack()
+    stack.push(20)
+    assert find_min(stack) is 20
