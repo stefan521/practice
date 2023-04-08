@@ -205,6 +205,27 @@ poetry.toml
 
 # End of https://www.toptal.com/developers/gitignore/api/python,macos
 
+### SBT ###
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+### SBT Patch ###
+.bsp/
+
+### Scala ###
+*.class
+*.log
+
 # ========== MANUALLY ADDED ==========
 .pytest_cache
 .idea/
