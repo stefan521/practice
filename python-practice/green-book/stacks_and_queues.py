@@ -59,6 +59,34 @@ def find_min(stack):
     return minimum
 
 
+# ===== Q3 =====
+class SetOfStacks:
+    def __init__(self, max_stack_size: int = 1):
+        self.max_stack_size = max_stack_size
+        self.last_stack_size = 0
+        self.stack_list: list = []
+
+    def _last_index(self) -> int:
+        return len(self.stack_list) - 1
+
+    def push(self, value):
+        if len(self.stack_list) == 0 or self.last_stack_size >= self.max_stack_size:
+            new_stack = Stack()
+            new_stack.push(value)
+            self.stack_list.append(new_stack)
+            self.last_stack_size = 1
+        else:
+            self.stack_list[self._last_index()].push(value)
+            self.last_stack_size += 1
+
+    def pop(self):
+        self.last_stack_size -= 1
+        return self.stack_list[self._last_index()].pop()
+
+    def peek(self):
+        return self.stack_list[self._last_index()].peek()
+
+
 def main():
     print("run python3 -m pytest")
 
