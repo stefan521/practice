@@ -60,3 +60,31 @@ def test_find_min_2():
     stack = Stack()
     stack.push(20)
     assert find_min(stack) is 20
+
+
+# ===== Q4 =====
+def test_queue_add():
+    queue = Queue()
+
+    assert queue.peek() is None
+
+    queue.add(10)
+    queue.add(20)
+    queue.add(30)
+
+    assert queue.peek() is 10
+
+
+def test_queue_remove():
+    queue = Queue()
+
+    queue.add(10)
+    queue.add(20)
+    queue.add(30)
+
+    assert queue.remove() is 10
+    assert queue.peek() is 20
+    assert queue.remove() is 20
+    assert queue.peek() is 30
+    assert queue.remove() is 30
+    assert queue.peek() is None

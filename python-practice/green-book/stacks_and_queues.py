@@ -87,6 +87,38 @@ class SetOfStacks:
         return self.stack_list[self._last_index()].peek()
 
 
+# ===== Q4 =====
+class Queue:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def add(self, value):
+        old_tail = self.tail
+        self.tail = Node(value)
+        if old_tail is not None:
+            old_tail.next_node = self.tail
+        if self.head is None:
+            self.head = self.tail
+
+    def remove(self):
+        if self.head is None:
+            return None
+
+        value = self.head.value
+        self.head = self.head.next_node
+
+        if self.head is None:
+            self.tail = None
+
+        return value
+
+    def peek(self):
+        if self.head is None:
+            return None
+        return self.head.value
+
+
 def main():
     print("run python3 -m pytest")
 
