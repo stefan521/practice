@@ -3,12 +3,12 @@
 import copy
 
 
-def contains_unique_characters_built_in_func(word):
+def contains_unique_characters_built_in_func(word: str):
     return len(set(word)) == len(word)
 
 
 # O(n) dictionary
-def contains_unique_characters_dict(word):
+def contains_unique_characters_dict(word: str):
     letter_map = {}
     for letter in word:
         letter_map[letter] = True
@@ -16,7 +16,7 @@ def contains_unique_characters_dict(word):
 
 
 # O(n^2)
-def contains_unique_characters_stupid_slow(word):
+def contains_unique_characters_stupid_slow(word: str):
     for index, letter1 in enumerate(word):
         for letter2 in word[index + 1:]:
             if letter1 == letter2:
@@ -25,7 +25,7 @@ def contains_unique_characters_stupid_slow(word):
 
 
 # O(n * log(n)) because of sorting
-def contains_unique_characters_sorting(word):
+def contains_unique_characters_sorting(word: str):
     if not word:
         return True
     sorted_word = sorted(word)
@@ -37,7 +37,7 @@ def contains_unique_characters_sorting(word):
 
 # ----- Q2 -----
 # O(n)
-def strings_contain_same_letter_dict(lhs, rhs):
+def strings_contain_same_letter_dict(lhs: str, rhs: str):
     letter_count = {}
 
     if len(lhs) != len(rhs):
@@ -58,7 +58,7 @@ def strings_contain_same_letter_dict(lhs, rhs):
 
 # ----- Q3 -----
 # O(n)
-def url_safe_string(input_string):
+def url_safe_string(input_string: str):
     letters = []
     for letter in input_string:
         if letter == " " and letters and letters[len(letters) - 1] != "%20":
@@ -71,7 +71,7 @@ def url_safe_string(input_string):
 
 # ----- Q4 -----
 # O(n)
-def is_palindrome_permutation(word):
+def is_palindrome_permutation(word: str):
     letters = {}
     odd_counts = 0
 
@@ -89,7 +89,7 @@ def is_palindrome_permutation(word):
 
 # ----- Q5 -----
 # O(n)
-def _one_extra_letter(shorter, longer):
+def _one_extra_letter(shorter: str, longer: str):
     mismatches = 0
     idx1 = 0
     idx2 = 0
@@ -107,7 +107,7 @@ def _one_extra_letter(shorter, longer):
     return mismatches <= 1
 
 
-def _one_mismatch(lhs, rhs):
+def _one_mismatch(lhs, rhs: str):
     mismatches = 0
 
     for idx, letter in enumerate(lhs):
@@ -119,7 +119,7 @@ def _one_mismatch(lhs, rhs):
     return True
 
 
-def one_edit_away(lhs, rhs):
+def one_edit_away(lhs: str, rhs: str):
     if abs(len(lhs) - len(rhs)) > 1:
         return False
 
@@ -134,14 +134,14 @@ def one_edit_away(lhs, rhs):
 
 # ----- Q6 -----
 # O(n)
-def compress_string(word):
+def compress_string(word: str):
     compressed = []
     count = 1
 
     if len(word) < 2:
         return word
 
-    def append(character):
+    def append(character: str):
         if count >= 2:
             compressed.extend([character, str(count)])
         else:
@@ -160,7 +160,7 @@ def compress_string(word):
 
 
 # ----- Q7 -----
-def rotate_image(image):
+def rotate_image(image: list):
     new_image = copy.deepcopy(image)
     for x, column in enumerate(image):
         for y, value in enumerate(column):
@@ -170,7 +170,7 @@ def rotate_image(image):
 
 
 # ----- Q8 -----
-def propagate0(matrix):
+def propagate0(matrix: list):
     new_matrix = copy.deepcopy(matrix)
     columns = []
     rows = []
@@ -190,7 +190,7 @@ def propagate0(matrix):
 
 
 # ----- Q9 -----
-def is_rotation(lhs, rhs):
+def is_rotation(lhs: str, rhs: str):
     return rhs in (lhs + lhs)
 
 

@@ -6,10 +6,10 @@ class Node:
     def __str__(self):
         return f"Node({self.value})"
 
-    def __eq__(self, other):
+    def __eq__(self, other: 'Node'):
         return self.value == other.value
 
-    def __ne__(self, other):
+    def __ne__(self, other: 'Node'):
         return not self.__eq__(other)
 
 
@@ -25,7 +25,7 @@ class SinglyLinkedList:
             node = node.next_node
         return 'SinglyLinkedList(' + ', '.join(values) + ')'
 
-    def __eq__(self, other):
+    def __eq__(self, other: 'SinglyLinkedList'):
         head_self = self.head
         head_other = other.head
 
@@ -37,11 +37,11 @@ class SinglyLinkedList:
 
         return True
 
-    def __ne__(self, other):
+    def __ne__(self, other: 'SinglyLinkedList'):
         return not self.__eq__(other)
 
     @staticmethod
-    def from_list(lst):
+    def from_list(lst: list):
         singly_linked_list = SinglyLinkedList()
         for thing in reversed(lst):
             singly_linked_list.prepend(thing)
@@ -69,7 +69,7 @@ class SinglyLinkedList:
 
 # ===== Q1 =====
 # O(n)
-def remove_duplicates(lst):
+def remove_duplicates(lst: SinglyLinkedList):
     seen = set()
 
     if lst.is_empty() or lst.head.next_node is None:
@@ -93,7 +93,7 @@ def remove_duplicates(lst):
 
 # ===== Q2 =====
 # O(n)
-def to_last(singly_linked_list, kth):
+def to_last(singly_linked_list: SinglyLinkedList, kth: int):
     size = singly_linked_list.size()
     curr = singly_linked_list.head
 
@@ -108,7 +108,7 @@ def to_last(singly_linked_list, kth):
     return curr
 
 
-def to_last_runner_tech(singly_linked_list, kth):
+def to_last_runner_tech(singly_linked_list: SinglyLinkedList, kth: int):
     p1 = singly_linked_list.head
     p2 = singly_linked_list.head
     distance = 0
@@ -128,7 +128,7 @@ def to_last_runner_tech(singly_linked_list, kth):
 
 
 # ===== Q3 =====
-def delete_middle_node(singly_linked_list):
+def delete_middle_node(singly_linked_list: SinglyLinkedList):
     p1 = singly_linked_list.head
     p2 = singly_linked_list.head
 
@@ -148,7 +148,7 @@ def delete_middle_node(singly_linked_list):
 
 
 # ===== Q4 =====
-def partition(lst, partition_value):
+def partition(lst: SinglyLinkedList, partition_value: int):
     new_lst = SinglyLinkedList.from_list([])
 
     if lst.head is None:
@@ -172,7 +172,7 @@ def partition(lst, partition_value):
 
 
 # ===== Q5 =====
-def _sum_lst_reversed(lst):
+def _sum_lst_reversed(lst: SinglyLinkedList):
     total = 0
     multiplier = 0
     curr = lst.head
@@ -185,12 +185,12 @@ def _sum_lst_reversed(lst):
     return total
 
 
-def sum_numbers_reversed(n1, n2):
+def sum_numbers_reversed(n1: SinglyLinkedList, n2: SinglyLinkedList):
     return _sum_lst_reversed(n1) + _sum_lst_reversed(n2)
 
 
 # ===== Q6 =====
-def is_palindrome(lst):
+def is_palindrome(lst: SinglyLinkedList):
     new_lst = SinglyLinkedList.from_list([])
     curr = lst.head
 
@@ -202,7 +202,7 @@ def is_palindrome(lst):
 
 
 # ===== Q7 =====
-def find_intersection(lst1, lst2):
+def find_intersection(lst1: SinglyLinkedList, lst2: SinglyLinkedList):
     lst1_nodes = set()
 
     curr = lst1.head
@@ -220,7 +220,7 @@ def find_intersection(lst1, lst2):
 
 
 # ===== Q8 =====
-def find_cycle(lst):
+def find_cycle(lst: SinglyLinkedList):
     lst_nodes = set()
 
     curr = lst.head
