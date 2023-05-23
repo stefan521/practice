@@ -88,3 +88,50 @@ def test_queue_remove():
     assert queue.peek() is 30
     assert queue.remove() is 30
     assert queue.peek() is None
+
+
+# ===== Q5 =====
+def test_sort_stack_1():
+    stack = Stack()
+    assert sort_stack(stack).is_empty()
+
+
+def test_sort_stack_2():
+    stack = Stack()
+    stack.push(5)
+    stack.push(2)
+    stack.push(10)
+
+    result = sort_stack(stack)
+
+    assert result.pop() is 2
+    assert result.pop() is 5
+    assert result.pop() is 10
+
+
+def test_sort_stack_3():
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+
+    result = sort_stack(stack)
+
+    assert result.pop() is 1
+    assert result.pop() is 2
+    assert result.pop() is 3
+    assert result.pop() is 4
+
+
+def test_sort_stack_4():
+    stack = Stack()
+    stack.push(8)
+    stack.push(7)
+    stack.push(6)
+
+    result = sort_stack(stack)
+
+    assert result.pop() is 6
+    assert result.pop() is 7
+    assert result.pop() is 8

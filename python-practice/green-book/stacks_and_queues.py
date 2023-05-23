@@ -40,7 +40,7 @@ class Stack:
 
 
 # ===== Q2 =====
-def find_min(stack):
+def find_min(stack: Stack):
     other_stack = Stack()
 
     if stack.is_empty():
@@ -117,6 +117,24 @@ class Queue:
         if self.head is None:
             return None
         return self.head.value
+
+
+# ===== Q5 =====
+def sort_stack(stack: Stack) -> Stack:
+    sorted_stack = Stack()
+
+    while not stack.is_empty():
+        curr = stack.pop()
+        if sorted_stack.is_empty() or curr <= sorted_stack.peek().value:
+            sorted_stack.push(curr)
+        else:
+            while not sorted_stack.is_empty() and curr > sorted_stack.peek().value:
+                stack.push(sorted_stack.pop())
+            sorted_stack.push(curr)
+
+    return sorted_stack
+
+# ===== Q6 =====
 
 
 def main():
