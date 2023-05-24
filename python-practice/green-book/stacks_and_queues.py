@@ -118,6 +118,9 @@ class Queue:
             return None
         return self.head.value
 
+    def is_empty(self):
+        return self.head is None
+
 
 # ===== Q5 =====
 def sort_stack(stack: Stack) -> Stack:
@@ -134,7 +137,59 @@ def sort_stack(stack: Stack) -> Stack:
 
     return sorted_stack
 
+
 # ===== Q6 =====
+class Animal:
+    def __init__(self, tag: int):
+        self.tag = tag
+
+
+class Dog(Animal):
+    def __init__(self, tag):
+        super().__init__(tag)
+
+
+class Cat(Animal):
+    def __init__(self, tag):
+        super().__init__(tag)
+
+
+class AnimalShelter:
+
+    def __init__(self):
+        self._cats = Queue()
+        self._dogs = Queue()
+        self._tag = 0
+
+    def enqueue(self, animal: Animal):
+        if isinstance(animal, Dog):
+            self._dogs.add(animal)
+            self._tag += 1
+        elif isinstance(animal, Cat):
+            self._cats.add(animal)
+            self._tag += 1
+
+    def _cats_are_older(self):
+        if self._cats.is_empty():
+            return False
+        elif self._dogs.is_empty():
+            return True
+        elif self._cats.peek().tag < self._dogs.peek().tag:
+            return True
+        else:
+            return False
+
+    def dequeue_any(self):
+        if self._cats_are_older():
+            return self._cats.remove()
+        else:
+            return self._dogs.remove()
+
+    def dequeue_dog(self):
+        return self._dogs.remove()
+
+    def dequeue_cat(self):
+        return self._cats.remove()
 
 
 def main():
