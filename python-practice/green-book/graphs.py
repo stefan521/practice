@@ -64,3 +64,13 @@ def breadth_first_search(tree: TreeNode) -> list[TreeNode]:
             to_visit.append(descendant)
 
     return visited
+
+
+def depth_first_search(tree: TreeNode) -> list[TreeNode]:
+    visited = []
+
+    for descendant in tree.children:
+        visited.extend(depth_first_search(descendant))
+    visited.append(tree)
+
+    return visited
