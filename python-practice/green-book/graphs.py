@@ -1,50 +1,10 @@
-class NodeId:
-    def __init__(self, value):
-        self.value = value
-
-    def __str__(self):
-        return f"NodeId({self.value})"
-
-    def __eq__(self, other):
-        return self.value == other.value
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-
 class Node:
-    def __init__(self, node_id: NodeId):
-        self.node_id = node_id
-
-    def __str__(self):
-        return f"Node({self.node_id})"
-
-    def __eq__(self, other):
-        return self.node_id == other.node_id
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-
-class UndirectedGraph:
-    def __init__(self, nodes: list[Node], edges: set[tuple[NodeId, NodeId]]):
-        self.nodes = nodes
-        self.edges = edges
-
-
-class DirectedGraph:
-    def __init__(self, nodes: list[Node], edges: dict[NodeId, NodeId]):
-        self.nodes = nodes
-        self.edges = edges
-
-
-class TreeNode:
     def __init__(self, value, children=None):
         self.value = value
         self.children = [] if children is None else children
 
     def __str__(self):
-        return f"TreeNode({self.value})"
+        return f"Node({self.value})"
 
     def __eq__(self, other):
         return self.value == other.value
@@ -52,8 +12,16 @@ class TreeNode:
     def __ne__(self, other):
         return not self.__eq__(other)
 
+    def __hash__(self):
+        return self.value
 
-def breadth_first_search(tree: TreeNode) -> list[TreeNode]:
+
+class Graph:
+    def __init__(self, nodes: list[Node]):
+        self.nodes = nodes
+
+
+def breadth_first_search(tree: Node) -> list[Node]:
     visited = []
     to_visit = [tree]
 
@@ -66,7 +34,7 @@ def breadth_first_search(tree: TreeNode) -> list[TreeNode]:
     return visited
 
 
-def depth_first_search(tree: TreeNode) -> list[TreeNode]:
+def depth_first_search(tree: Node) -> list[Node]:
     visited = []
 
     for descendant in tree.children:
@@ -74,3 +42,12 @@ def depth_first_search(tree: TreeNode) -> list[TreeNode]:
     visited.append(tree)
 
     return visited
+
+
+def path_between_nodes_exists(graph: Graph, n1: Node, n2: Node) -> bool:
+    for node in graph.nodes:
+        connected_subgraph = depth_first_search(node)
+        if n1 in connected_subgraph and n2 in connected_subgraph:
+            return True
+
+    return False
