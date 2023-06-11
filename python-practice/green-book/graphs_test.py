@@ -77,3 +77,48 @@ def test_path_between_nodes_exists_2():
     result = path_between_nodes_exists(graph, n1, n3)
 
     assert result is False
+
+
+def test_array_to_binary_search_tree_0():
+    result = array_to_binary_search_tree([])
+
+    assert result == BinaryTreeNode(None)
+
+
+def test_array_to_binary_search_tree_1():
+    result = array_to_binary_search_tree([5])
+
+    assert result == BinaryTreeNode(5)
+
+
+def test_array_to_binary_search_tree_2():
+    result = array_to_binary_search_tree([1, 2, 3])
+
+    assert result == BinaryTreeNode(
+        1,
+        BinaryTreeNode(2),
+        BinaryTreeNode(3)
+    )
+
+
+# imbalanced
+def test_array_to_binary_search_tree_3():
+    result = array_to_binary_search_tree([1, 2, 3, 4, 5])
+
+    assert result == BinaryTreeNode(
+        1,
+        None,
+        BinaryTreeNode(
+            2,
+            None,
+            BinaryTreeNode(
+                3,
+                None,
+                BinaryTreeNode(
+                    4,
+                    None,
+                    BinaryTreeNode(5)
+                )
+            )
+        )
+    )

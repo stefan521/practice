@@ -1,10 +1,6 @@
-class Node:
-    def __init__(self, value, children=None):
+class NodeLike:
+    def __init__(self, value):
         self.value = value
-        self.children = [] if children is None else children
-
-    def __str__(self):
-        return f"Node({self.value})"
 
     def __eq__(self, other):
         return self.value == other.value
@@ -14,6 +10,16 @@ class Node:
 
     def __hash__(self):
         return self.value
+
+
+class Node(NodeLike):
+    def __init__(self, value, children=None):
+        super().__init__(value)
+        self.value = value
+        self.children = [] if children is None else children
+
+    def __str__(self):
+        return f"Node({self.value})"
 
 
 class Graph:
@@ -42,6 +48,42 @@ def depth_first_search(tree: Node) -> list[Node]:
     visited.append(tree)
 
     return visited
+
+
+class BinaryTreeNode(NodeLike):
+
+    def __init__(self, value, left=None, right=None):
+        super().__init__(value)
+        self.value = value
+        self.left = left
+        self.right = right
+
+    def __str__(self):
+        return f"BinaryTreeNode({self.value}, ${self.left}, ${self.right})"
+
+
+# create a binary search tree from a sorted array of unique numbers
+# TODO balance the tree
+def array_to_binary_search_tree(numbers: list[int]) -> BinaryTreeNode:
+    if len(numbers) == 0:
+        return BinaryTreeNode(None)
+
+    root_node = BinaryTreeNode(numbers[0])
+
+    for number in numbers[1:]:
+        parent = root_node
+        while number < parent.value:
+            if parent.left is not None:
+                parent = parent.left
+            else:
+                parent.left = BinaryTreeNode(number)
+        while number > parent.value:
+            if parent.right is not None:
+                parent = parent.right
+            else:
+                parent.right = BinaryTreeNode(number)
+
+    return root_node
 
 
 def path_between_nodes_exists(graph: Graph, n1: Node, n2: Node) -> bool:
