@@ -2,10 +2,10 @@ class NodeLike:
     def __init__(self, value):
         self.value = value
 
-    def __eq__(self, other):
+    def __eq__(self, other: 'NodeLike'):
         return self.value == other.value
 
-    def __ne__(self, other):
+    def __ne__(self, other: 'NodeLike'):
         return not self.__eq__(other)
 
     def __hash__(self):
@@ -57,6 +57,12 @@ class BinaryTreeNode(NodeLike):
         self.value = value
         self.left = left
         self.right = right
+
+    def __eq__(self, other: 'BinaryTreeNode'):
+        return self.value == other.value and self.left == other.left and self.right == other.right
+
+    def __ne__(self, other: 'BinaryTreeNode'):
+        return not self.__eq__(other)
 
     def __str__(self):
         return f"BinaryTreeNode({self.value}, ${self.left}, ${self.right})"

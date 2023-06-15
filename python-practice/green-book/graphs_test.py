@@ -96,8 +96,12 @@ def test_array_to_binary_search_tree_2():
 
     assert result == BinaryTreeNode(
         1,
-        BinaryTreeNode(2),
-        BinaryTreeNode(3)
+        None,
+        BinaryTreeNode(
+            2,
+            None,
+            BinaryTreeNode(3)
+        )
     )
 
 
