@@ -69,7 +69,7 @@ class BinaryTreeNode(NodeLike):
 
 
 # create a binary search tree from a sorted array of unique numbers
-# TODO balance the tree
+# TODO balance the tree.
 def array_to_binary_search_tree(numbers: list[int]) -> BinaryTreeNode:
     if len(numbers) == 0:
         return BinaryTreeNode(None)
