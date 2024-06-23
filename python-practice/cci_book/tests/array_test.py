@@ -1,4 +1,4 @@
-from array import *
+from cci_book.array import *
 
 
 # ----- Q1 -----

@@ -1,4 +1,4 @@
-from graphs import *
+from cci_book.graphs import *
 
 
 def test_breadth_first_search_0():

@@ -1,4 +1,4 @@
-from linked_list import *
+from cci_book.linked_list import *
 
 
 # ===== Q1 =====

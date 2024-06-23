@@ -1,4 +1,4 @@
-from stacks_and_queues import *
+from cci_book.stacks_and_queues import *
 
 
 def test_is_empty():
