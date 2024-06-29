@@ -27,3 +27,37 @@ def insert_bits(bits_n: str, bits_m: str, i: int, j: int) -> str:
     shifted_m = binary_m << i
 
     return binary_str(masked_n | shifted_m)
+
+
+def float_to_binary(num: float) -> str:
+    """
+    Problem 5.2
+    Return the 32 bit binary representation of num.
+    """
+    exponent_bias = 127
+    max_iter = 23
+    whole = math.floor(num)
+    decimal = num - whole
+
+    whole_bin = bin(whole)[2:]
+    exponent = len(whole_bin) - 1
+    mantissa_whole = whole_bin[1:]
+    mantissa_decimal = ""
+
+    for i in range(0, max_iter):
+        decimal *= 2
+
+        if decimal == 0:
+            break
+
+        if decimal >= 1:
+            decimal -= 1
+            mantissa_decimal += "1"
+        else:
+            mantissa_decimal += "0"
+
+    sign_bit = "0" if num >= 0 else "1"
+    exponent_str = bin(exponent_bias + exponent)[2:].ljust(8, "0")
+    mantissa = f"{mantissa_whole}{mantissa_decimal}".ljust(23, "0")[:23]
+
+    return sign_bit + exponent_str + mantissa
