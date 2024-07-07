@@ -1,4 +1,8 @@
-from cci_book.c5_bit_manipulation import insert_bits, float_to_binary
+from cci_book.c5_bit_manipulation import (
+    insert_bits,
+    float_to_binary,
+    flip_zero
+)
 
 
 def test_insert_bits_1():
@@ -13,3 +17,11 @@ def test_insert_bits_2():
 
 def test_float_to_binary_1():
     assert float_to_binary(85.125) == "01000010101010100100000000000000"
+
+
+def test_flip_zero():
+    assert flip_zero("11011101111") == 8
+    assert flip_zero("10011111110") == 8
+    assert flip_zero("00000000000") == 1
+    assert flip_zero("00001000000") == 2
+    assert flip_zero("00001001100") == 3

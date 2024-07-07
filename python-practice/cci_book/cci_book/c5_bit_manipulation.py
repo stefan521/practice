@@ -61,3 +61,23 @@ def float_to_binary(num: float) -> str:
     mantissa = f"{mantissa_whole}{mantissa_decimal}".ljust(23, "0")[:23]
 
     return sign_bit + exponent_str + mantissa
+
+
+def flip_zero(binary_num: str) -> int:
+    """
+    Problem 5.3
+    Flip exactly one zero to get the greatest number of consecutive ones.
+    """
+    possibilities = [binary_num]
+    max_ones = 1
+
+    for i in range(0, len(binary_num)):
+        if binary_num[i] == "0":
+            rest = "" if i == len(binary_num) else binary_num[i+1:len(binary_num)]
+            possibilities.append(binary_num[0:i] + "1" + rest)
+
+    for num in possibilities:
+        max_ones_length = max([len(sequence_ones) for sequence_ones in num.split("0")])
+        max_ones = max_ones_length if max_ones_length > max_ones else max_ones
+
+    return max_ones
