@@ -1,7 +1,8 @@
 from cci_book.c5_bit_manipulation import (
     insert_bits,
     float_to_binary,
-    flip_zero
+    flip_zero,
+    bit_diff
 )
 
 
@@ -25,3 +26,11 @@ def test_flip_zero():
     assert flip_zero("00000000000") == 1
     assert flip_zero("00001000000") == 2
     assert flip_zero("00001001100") == 3
+
+
+def test_bit_diff():
+    assert bit_diff("11101", "01111") == 2
+    assert bit_diff("11100", "01111") == 3
+    assert bit_diff("11111", "00000") == 5
+    assert bit_diff("11111", "11111") == 0
+

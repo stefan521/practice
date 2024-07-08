@@ -81,3 +81,16 @@ def flip_zero(binary_num: str) -> int:
         max_ones = max_ones_length if max_ones_length > max_ones else max_ones
 
     return max_ones
+
+
+def bit_diff(binary_a: str, binary_b: str) -> int:
+    """
+    Problem 5.6
+    How many bits to flip to convert binary_a to binary_b
+    """
+    a = int(binary_a, 2)
+    b = int(binary_b, 2)
+
+    diff = a ^ b
+
+    return diff.bit_count()
