@@ -82,6 +82,8 @@ def flip_zero(binary_num: str) -> int:
 
     return max_ones
 
+# TODO 5.4
+
 
 def bit_diff(binary_a: str, binary_b: str) -> int:
     """
@@ -94,3 +96,8 @@ def bit_diff(binary_a: str, binary_b: str) -> int:
     diff = a ^ b
 
     return diff.bit_count()
+
+
+# TODO 5.7
+
+# TODO 5.8
